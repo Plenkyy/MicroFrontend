@@ -11,5 +11,5 @@ FROM nginx:stable-alpine
 WORKDIR /usr/share/nginx/html
 RUN rm -rf ./*
 COPY --from=build /app/dist .
-EXPOSE 80
+EXPOSE 3050
 CMD ["nginx", "-g", "daemon off;"]

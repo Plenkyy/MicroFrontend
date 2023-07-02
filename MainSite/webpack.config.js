@@ -44,7 +44,7 @@ module.exports = {
       name: "MainSite",
       filename: "remoteEntry.js",
       remotes: {
-        reporting_module:"reporting_host_mf@http://localhost:3050/remoteEntry.js"
+        reporting_module:"reporting_host_mf@http://192.168.1.30:3050/remoteEntry.js"
       },
       exposes: {},
       shared: {
