@@ -1,13 +1,15 @@
-FROM  node:18.16.1-bullseye
-
-WORKDIR /web_reporting
-
-COPY /../package.json .
-
-RUN npn install
-
+# Building 
+FROM  node:18.16.1-bullseye as build
+WORKDIR /app
+COPY package.json .
+RUN npm install
 COPY . .
+RUN npm run build
 
-EXPOSE 3050
-
-CMD ["npm", "start"]
+# Copying to Nginx
+FROM nginx:stable-alpine
+WORKDIR /usr/share/nginx/html
+RUN rm -rf ./*
+COPY --from=build /app/dist .
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
