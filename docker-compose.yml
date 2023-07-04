@@ -4,6 +4,7 @@ services:
     build:
       context: ./MainSite
       dockerfile: Dockerfile
+    image: plenkyy/microfrontend-service1
     ports:
       - 8080:80
 
@@ -11,5 +12,6 @@ services:
     build:
       context: ./reporting_host_mf
       dockerfile: Dockerfile
+    image: plenkyy/microfrontend-service2
     ports:
       - 3050:80
