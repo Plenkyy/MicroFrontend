@@ -6,7 +6,7 @@ services:
       dockerfile: Dockerfile
     image: plenkyy/microfrontend-service1
     ports:
-      - 3030:80
+      - 8080:80
 
   service2:
     build:
