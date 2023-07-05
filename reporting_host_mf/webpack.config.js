@@ -4,7 +4,7 @@ const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPl
 const deps = require("./package.json").dependencies;
 module.exports = {
   output: {
-    publicPath: "http://192.168.1.30:3050/",
+    publicPath: "http://10.13.21.24:3050/",
   },
 
   resolve: {
