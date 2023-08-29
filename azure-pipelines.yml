@@ -2,7 +2,7 @@ trigger:
 - master
 
 pool:
-    vmImage: 'ubuntu-latest'
+    name: AzureDevOpsAgent   
 
 jobs:
   - job: BuildAndTest
@@ -16,8 +16,10 @@ jobs:
       displayName: 'Instaliranje dependencija'
     
     - script: npm test
-      displayName: 'Pokretanje testova'  # This assumes you meant to run tests with `npm test`
+      displayName: 'Pokretanje testova'
+    
     - script: cd MainSite
       displayName: 'Getting to MainSite folder'
+    
     - script: npm run build
       displayName: 'Building MainSite'
