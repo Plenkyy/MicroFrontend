@@ -2,7 +2,9 @@ trigger:
 - master
 
 pool:
-    name: AzureDevOpsAgent   
+    name: Default  # This specifies the agent pool.
+    demands: 
+    - agent.name -equals AzureDevOpsAgent  # This ensures the job runs on the agent named AzureDevOpsAgent.
 
 jobs:
   - job: BuildAndTest
@@ -23,3 +25,4 @@ jobs:
     
     - script: npm run build
       displayName: 'Building MainSite'
+
