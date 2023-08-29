@@ -3,16 +3,21 @@ trigger:
 
 pool:
     vmImage: 'ubuntu-latest'
+
 jobs:
   - job: BuildAndTest
     steps:
     - task: NodeTool@0
       inputs:
-        versionSpec:  '>=6.10.0'
-      displayName: 'Instalacija Node.js packeta na ubunutu mašinu'
+        versionSpec: '>=6.10.0'
+      displayName: 'Instalacija Node.js packeta na Ubuntu mašinu'
+
     - script: npm install
-      displayName: 'instaliranje dependencia'
-    - script: npm install
-      displayName: 'Run tests'
+      displayName: 'Instaliranje dependencija'
+    
+    - script: npm test
+      displayName: 'Pokretanje testova'  # This assumes you meant to run tests with `npm test`
+    - script: cd MainSite
+      displayName: 'Getting to MainSite folder'
     - script: npm run build
-      displayName: 'Building project'
+      displayName: 'Building MainSite'
